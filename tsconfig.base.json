@@ -6,6 +6,7 @@
     "declaration": false,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
     "experimentalDecorators": true,
     "importHelpers": true,
     "target": "es2015",
@@ -17,6 +18,9 @@
     "paths": {
       "@level.up/nestjs-supertokens": [
         "packages/nestjs-supertokens/src/index.ts"
+      ],
+      "@pandaverse/hasura-apollo-client": [
+        "packages/hasura-apollo-client/src/index.ts"
       ]
     }
   },

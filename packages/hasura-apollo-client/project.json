@@ -1,0 +1,45 @@
+{
+  "name": "hasura-apollo-client",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/hasura-apollo-client/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/rollup:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/hasura-apollo-client",
+        "main": "packages/hasura-apollo-client/src/index.ts",
+        "tsConfig": "packages/hasura-apollo-client/tsconfig.lib.json",
+        "assets": [],
+        "project": "packages/hasura-apollo-client/package.json",
+        "compiler": "swc",
+        "format": ["cjs", "esm"],
+        "external": ["@apollo/client", "graphql-ws", "apollo-link"]
+      }
+    },
+    "publish": {
+      "command": "node tools/scripts/publish.mjs apollo-client {args.ver} {args.tag}",
+      "dependsOn": ["build"]
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "packages/hasura-apollo-client/**/*.ts",
+          "packages/hasura-apollo-client/package.json"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "../../coverage/packages/hasura-apollo-client"
+      }
+    }
+  },
+  "tags": []
+}

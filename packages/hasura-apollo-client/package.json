@@ -1,0 +1,14 @@
+{
+  "name": "@level.up/hasura-apollo-client",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@apollo/client": "^3.8.7",
+    "graphql-ws": "^5.14.2",
+    "apollo-link": "^1.2.14",
+    "lodash": "^4.17.21"
+  },
+  "type": "commonjs",
+  "main": "./index.cjs",
+  "module": "./index.js",
+  "types": "./src/index.d.ts"
+}
