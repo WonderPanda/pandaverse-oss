@@ -63,10 +63,16 @@ export const makeApolloClient: (
       await refreshToken();
     }
 
+    const roleOverride = headers?.['x-hasura-role'];
+
     const newHeaders = {
       ...headers,
       Authorization: `Bearer ${jwt}`,
-      'x-hasura-role': headers?.['x-hasura-role'] ?? role,
+      'x-hasura-role': roleOverride
+        ? roleOverride
+        : desiredRole
+        ? desiredRole
+        : role,
     };
 
     return {
